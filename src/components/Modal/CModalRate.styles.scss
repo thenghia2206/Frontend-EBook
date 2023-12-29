@@ -1,0 +1,37 @@
+.form-rate{
+    padding-bottom: 1.875rem;
+   .book-info{
+        margin-top: 1.25rem;
+        .image-book{
+            display: inline-block;
+            width: 3.5rem !important;
+            height: 3.5rem !important;
+            margin-right: 0.625rem;
+            border: 1px solid rgba(0,0,0,.09);
+
+        }
+        .title {
+            word-wrap: break-word;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            margin-left: 5em;
+            font-weight: bold;
+            font-size: 16px;
+            margin-top: -1em;
+        }
+   } 
+
+   .rate-value{
+        margin-top: 3em;
+        display: flex;
+        align-items: center;
+        margin-bottom: 1em;
+        .title-rate{
+            font-size: 16px;
+        }
+        .star-rate{
+            margin-left: 3em;
+        }
+   }
+}
