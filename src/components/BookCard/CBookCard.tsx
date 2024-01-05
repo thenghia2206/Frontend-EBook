@@ -29,7 +29,7 @@ const CBookCard = (props: props) => {
             className="card"
             style={{width : "230px" ,height : "400px"}}
             hoverable
-            cover={<img className="image-card" alt="example" src={`${API_URL.HOST}/${API_URL.IMAGE}/${props.image}`} style={{width : "230px" , height : "280px"}}/>}
+            cover={<img className="image-card" alt="example" src={`${API_URL.HOST}/${API_URL.IMAGE}/${props.image}`} style={{width : "230px" , height : "280px", objectFit: "contain", objectPosition: "center"}}/>}
         >
             <div className="title-and-price">
                 <Meta
