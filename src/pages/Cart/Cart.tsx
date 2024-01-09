@@ -23,7 +23,7 @@ import {
 } from "@ant-design/icons";
 import { useDispatchRoot, useSelectorRoot } from "../../redux/store";
 import { API_URL } from "../../enum/api.enum";
-import { clearCartRequest, deleteBookInCartRequest, getCartRequest, paymentRequest } from "../../redux/controller";
+import { clearCartRequest, deleteBookInCartRequest, getCartQuantityRequest, getCartRequest, paymentRequest } from "../../redux/controller";
 import { useNavigate } from "react-router-dom";
 
 const paymentMethodList = [
@@ -164,6 +164,7 @@ const Cart = () => {
             cancelText : "Hủy",
             onOk: () => {
                 dispatch(clearCartRequest())
+                dispatch(getCartQuantityRequest());
             },
         });
     };

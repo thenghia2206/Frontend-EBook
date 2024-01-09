@@ -2,59 +2,26 @@
 import {
     ArrowLeftOutlined,
     ArrowRightOutlined,
-    EyeOutlined,
-    RightOutlined,
+    RightOutlined
 } from "@ant-design/icons";
-import { Button, Card, Col, Row } from "antd";
-import Meta from "antd/lib/card/Meta";
-import { Variants, motion } from "framer-motion";
+import { Button, Col, Row } from "antd";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import BietThu from "../../images/homepage/bietthu1.png";
-import Notification from "../../images/homepage/notification.png";
-import { useDispatchRoot, useSelectorRoot } from "../../redux/store";
-import "./styles.home.scss";
-
-import DrawHomeImage1 from "../../images/homepage/home_img_1.png";
-import DrawHomeImage2 from "../../images/homepage/home_img_2.png";
-import DrawHomeImage3 from "../../images/homepage/home_img_3.png";
-import DrawHomeImage4 from "../../images/homepage/home_img_4.png";
-import DrawHomeImage5 from "../../images/homepage/home_img_5.png";
-import DrawHomeImage6 from "../../images/homepage/home_img_6.png";
-import DrawHomeImage7 from "../../images/homepage/home_img_7.png";
-import DrawHomeImage8 from "../../images/homepage/home_img_8.png";
-import DrawHomeImage9 from "../../images/homepage/home_img_9.png";
-import DrawHomeImage10 from "../../images/homepage/home_img_10.png";
-import DrawHomeImage11 from "../../images/homepage/home_img_11.png";
-import DrawHomeImage12 from "../../images/homepage/home_img_12.png";
-import DrawHomeImage13 from "../../images/homepage/home_img_13.png";
-import DrawHomeImage14 from "../../images/homepage/home_img_14.png";
-import DrawHomeImage15 from "../../images/homepage/home_img_15.png";
-import DrawHomeImage16 from "../../images/homepage/home_img_16.png";
-import CarouselImage from '../../images/homepage/5.png';
+import Adsvertisement1 from '../../images/homepage/1.png';
 import CarouselImage2 from '../../images/homepage/2.png';
 import CarouselImage3 from '../../images/homepage/3.png';
-import Adsvertisement1 from '../../images/homepage/1.png';
 import Adsvertisement2 from '../../images/homepage/4.png';
+import CarouselImage from '../../images/homepage/5.png';
 import CategoryIcon from '../../images/homepage/category_icon.png';
-import Cate1 from '../../images/homepage/cate1.png'
-import Cate2 from '../../images/homepage/cate2.png'
-import Cate3 from '../../images/homepage/cate3.png'
-import Cate4 from '../../images/homepage/cate4.png'
-import Cate5 from '../../images/homepage/cate5.png'
-import Cate6 from '../../images/homepage/cate6.png'
-import Cate7 from '../../images/homepage/cate7.png'
-import Cate8 from '../../images/homepage/cate8.png'
-import Cate9 from '../../images/homepage/cate9.png'
-import Declare1 from '../../images/homepage/declare2.jpg'
-
+import Declare1 from '../../images/homepage/banner.png';
+import { useDispatchRoot, useSelectorRoot } from "../../redux/store";
+import "./styles.home.scss";
 import { Carousel } from 'antd';
-import CDeclare from "../../components/Declare/CDeclare";
-import Slider from "../../components/Slider/Slider";
 import CBookCard from "../../components/BookCard/CBookCard";
-import { advancedSearchingRequest, getBookBestSellerRequest, getBookMostViewRequest, getCategoriesRequest, getDetailBookRequests, getFileBookRequests, getRecommendRequest, resetCurrentSearchValueRequest } from "../../redux/controller";
+import CDeclare from "../../components/Declare/CDeclare";
 import { QUERY_PARAM_FILTER } from "../../constants/get-api.constants";
-
+import { advancedSearchingRequest, getBookBestSellerRequest, getBookMostViewRequest, getCategoriesRequest, getFileBookRequests, getRecommendRequest, resetCurrentSearchValueRequest } from "../../redux/controller";
 
 // Phần trang chủ của trang web
 const Home = () => {

@@ -56,7 +56,7 @@ const Profile = () => {
                     <span className='profile-navbar-item-text'>Thay đổi mật khẩu</span>
                 </div>
             </div>
-            <div className='profile-content'>
+            <div className='profile-content' style={{width : '100%'}}>
                 <Outlet />
             </div>
         </div>

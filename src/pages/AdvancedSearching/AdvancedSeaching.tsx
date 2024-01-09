@@ -113,7 +113,7 @@ const AdvancedSeaching = () => {
                     exit={{ x: window.innerWidth, transition: { duration: 0.5 } }}
                     style={{background : "#f0f2f5"}}
                     >
-                        <div className="recommend" style={{width : "100%" , marginTop : "-4em"}}>
+                        <div className="recommend" style={{width : "100%" , marginTop : "-4em" }}>
                             <div className="lst-tool" style={{marginTop : "1em"}}>
                             <ul style={{ listStyleType: 'none', padding: 0, display: 'grid', gridTemplateColumns : "repeat(4, 1fr)", gridGap : "8px" }}>
                                 {listFilterBook.map((card) => (

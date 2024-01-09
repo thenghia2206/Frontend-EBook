@@ -168,8 +168,9 @@ const PurchasedBooks = () => {
         <motion.div className='sketch-main'
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}>
-
+            exit={{ opacity: 0 }}
+            style={{width : '100%'}}
+            >
             <div className='table-area' >
                 <CTable
                     tableMainTitle='Danh sách sách đã mua'

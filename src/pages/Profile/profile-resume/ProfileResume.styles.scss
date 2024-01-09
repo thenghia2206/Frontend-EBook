@@ -1,5 +1,6 @@
 .profile-content {
-  
+    display: flex;
+    justify-content: center;
 
   .profile-content-right {
     background-color: #fff;
@@ -7,8 +8,11 @@
     padding: 20px;
     border-radius: 8px; 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
-    width: 150%; 
-    margin-left: 7em;
+    width: 100%; 
+
+    .ant-input {
+      width: 500px;
+    }
   }
 }
 

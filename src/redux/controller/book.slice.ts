@@ -729,6 +729,7 @@ action$.pipe(
                 return [
                     bookSlice.actions.deleteBookInCartSuccess(res.data),
                     bookSlice.actions.getCartRequest(),
+                    bookSlice.actions.getCartQuantityRequest()
 
                 ];
             }),
@@ -747,6 +748,7 @@ action$.pipe(
                 return [
                     bookSlice.actions.clearCartSuccess(res.data),
                     bookSlice.actions.getCartRequest(),
+                    bookSlice.actions.getCartQuantityRequest()
 
                 ];
             }),
