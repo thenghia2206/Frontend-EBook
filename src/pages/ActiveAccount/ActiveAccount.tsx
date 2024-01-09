@@ -53,7 +53,7 @@ const ActiveAccount = () => {
             }
             {!isNotFoundPage &&
                 <div style={{ textAlign: 'center', marginTop: 100 }}>
-                    <h1>Đang xử lý xác nhận đăng nhập</h1>
+                    <h1>Đang xử lý kích hoạt tài khoản</h1>
                     <p>Chuyển hướng đến trang đăng nhập, vui lòng chờ giây lát</p>
                 </div>}
         </div>
