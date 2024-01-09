@@ -4,13 +4,8 @@ import './resetPassword.styles.scss'
 const ResetPassword = () => {
 
     return (
-        <div className='main'>
-            <div className='content-area'>
-                <div className='container'> 
-                <ResetPasswordFail></ResetPasswordFail>
-                
-                </div>
-            </div>
+        <div className='main-reset-password-fail'>
+            <ResetPasswordFail></ResetPasswordFail>
         </div>
     )
 };

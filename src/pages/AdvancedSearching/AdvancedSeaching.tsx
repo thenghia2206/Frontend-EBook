@@ -102,7 +102,7 @@ const AdvancedSeaching = () => {
 
     return (
         <div className="main" style={{marginLeft : "-3em"}}>
-            <div className="options-category">
+            <div className="options-category" style={{marginLeft : "6em"}}>
                 <CFilter></CFilter>
             </div>
             <div className="filter">

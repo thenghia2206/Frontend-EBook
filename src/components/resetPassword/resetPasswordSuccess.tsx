@@ -72,11 +72,11 @@ const ResetPasswordSuccess = () => {
     }
 
     return (
-        <div className='main'>
-            <div className='content-area'>
-            <div className='container'>
-            <div className='title'>TẠO LẠI MẬT KHẨU</div>
-                <Form
+        <div className='main-resetpasswor-success'>
+            <div className='title' style={{textAlign : "center"}}>TẠO LẠI MẬT KHẨU</div>
+            <br></br>
+            <div className="form-resetpassword">
+            <Form
                     name="reset-password"
                     className="reset-password"
                     layout="vertical"
@@ -198,10 +198,7 @@ const ResetPasswordSuccess = () => {
                     </div>
                 </Form>
             </div>
-            </div>
-        </div>
-
-                
+        </div>      
     );
 };
 
