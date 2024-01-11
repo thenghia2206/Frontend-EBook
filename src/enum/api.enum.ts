@@ -22,5 +22,6 @@ export enum API_URL {
     FILTER_BOOK = "books/filter",
     LIST_CATEGORY = "category/list-category",
     GET_RECOMMEND_DETAIL_BOOK = 'books/recommendDetailBook',
+    GET_CODE_PDF = 'files/check-file',
 }
 

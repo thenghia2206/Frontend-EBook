@@ -17,6 +17,7 @@ import PurchasedBooks from "../pages/purchased-books/purchasedBooks";
 import AdvancedSeaching from "../pages/AdvancedSearching/AdvancedSeaching";
 import BestSeller from "../pages/BestSeller/BestSeller";
 import MostView from "../pages/MostView/MostView";
+import ReadBook from "../pages/readBook/readBook";
 
 // Dùng để set animation cho các router với nhau
 const AnimationRouter = () => {
@@ -42,9 +43,9 @@ const AnimationRouter = () => {
                     path="/detail-book/:bookId"
                     element={<DetailBook />}
                 ></Route>
-
                 <Route path="/purchased-successfully" element={<PurchaseSuccessfully />}></Route>
                 <Route element={<ResetPassword />} path="/forgot-password"/>
+                <Route element={<ReadBook />} path="/read-book"/>
                 <Route element={<ResetPasswordSuccess />} path="/forgot-password/newpass"/>
             </Routes>
         </AnimatePresence>

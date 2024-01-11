@@ -12,6 +12,7 @@ import { API_URL } from '../../enum/api.enum';
 import { getFileBookRequests, getPuchasedBooksRequest } from '../../redux/controller';
 import { EditOutlined, EyeOutlined, FormOutlined } from '@ant-design/icons';
 import CRateModal from '../../components/Modal/CModalRate';
+import IconRate from "../../images/rate.jpg";
 
 const PurchasedBooks = () => {
     const {
@@ -23,7 +24,7 @@ const PurchasedBooks = () => {
     const [endDate, setEndDate] = useState('');
     const [dataBillLst, setDataBillLst] = useState<any[]>([]);
     const [currentSearchValue, setCurrentSearchValue] = useState<any>({
-         size: QUERY_PARAM.size, 
+         size: 10, 
          offset: 0 
         })
 
@@ -97,14 +98,14 @@ const PurchasedBooks = () => {
             render: (_, record) => (
                 <Space size="middle">
                     { record.rated ? (
-                        <Tooltip placement="top" title={"Xem chi tiết"}>
-                            <EyeOutlined  onClick={() => handleDetail(record)} />
+                        <Tooltip placement="top" title={"Xem chi tiết"} >
+                            <EyeOutlined style={{marginLeft : "10px"}} onClick={() => handleDetail(record)} />
                         </Tooltip>
                     ) : (
 
                         <div>
                             <Tooltip placement="top" title={"Đánh giá"}>
-                                <FormOutlined onClick={() => handleRate(record)} />
+                                <img src={IconRate} alt="" style={{height : '20px', width : '20px'}} onClick={() => handleRate(record)} />
                             </Tooltip>
                             <Tooltip placement="top" title={"Xem chi tiết"} >
                                 <EyeOutlined style={{marginLeft : "10px"}} onClick={() => handleDetail(record)} />
@@ -144,17 +145,17 @@ const PurchasedBooks = () => {
 
     const onSearch = () => {
         const body: any = {
-            size: QUERY_PARAM.size,
+            size: 10,
             offset: 0,
             search: textSearch,
         };
         const finalBody = Utils.getRidOfUnusedProperties(body)
         setCurrentSearchValue(finalBody);
-        // dispatch(getPurchasedSketchsRequest(finalBody))
+
     }
 
     const onChangePagination = (event: any) => {
-        currentSearchValue.offset = (event - 1) * QUERY_PARAM.size;
+        currentSearchValue.offset = (event - 1) * 10;
         setCurrentSearchValue(currentSearchValue);
         dispatch(getPuchasedBooksRequest(currentSearchValue))
         document.body.scrollTo({

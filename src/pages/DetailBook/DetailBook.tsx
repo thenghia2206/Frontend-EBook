@@ -10,7 +10,7 @@ import IconDetail1 from "../../images/detail/icon-detail-1.png";
 import Avatar from '../../images/detail/avatar.png'
 import { useDispatchRoot, useSelectorRoot } from "../../redux/store";
 import Utils from "../../common/utils";
-import { addBookToCartRequest, advancedSearchingRequest, getDetailBookRequests, getFileBookRequests, getRatesRequest, getRecommendByDetailBookRequest, resetCurrentSearchValueRequest } from "../../redux/controller";
+import { addBookToCartRequest, advancedSearchingRequest, getCodeBookRequests, getDetailBookRequests, getFileBookRequests, getProfileRequest, getRatesRequest, getRecommendByDetailBookRequest, resetCurrentSearchValueRequest } from "../../redux/controller";
 import { IAuthor, IBook, ICategory, IImage, IPublisher } from "../../common/book.interface";
 import { API_URL } from "../../enum/api.enum";
 import { Link } from "react-router-dom";
@@ -22,7 +22,7 @@ import CBookCard from "../../components/BookCard/CBookCard";
 const DetailBook = () => {
     const navigate = useNavigate();
     const {
-        detailBook, listRate , totalRate1, totalRate2, totalRate3, totalRate4, totalRate5,totalRate,fileBook, listBookRecommendByDetailBook,
+        detailBook, listRate , totalRate1, totalRate2, totalRate3, totalRate4, totalRate5,totalRate,fileBook, listBookRecommendByDetailBook,codeBook,
     } = useSelectorRoot((state) => state.book); 
     const { tokenLogin, accesstokenExpỉred } = useSelectorRoot((state) => state.login);
 
@@ -282,6 +282,17 @@ const DetailBook = () => {
         navigate(`/detail-book/${bookId}`);
     };
 
+    const handleClickReadBook = () => {
+        const bodyRequest = {
+            id : bookId
+        }
+        dispatch(getProfileRequest());
+        const token = Utils.getValueLocalStorage("token")
+        if(token && bookId ){
+            window.open(`${API_URL.HOST}/${API_URL.FILE_BOOK}/getCodePDF/by-params?bookId=${bookId}&token=${token}`)
+        }
+    };
+
 
     return (
         <div className="main-page-detail">
@@ -436,13 +447,14 @@ const DetailBook = () => {
                                                 whileHover={{ scale: 1.1 }}
                                                 whileTap={{ scale: 0.95 }}
                                             >
-                                                <Button className="download-now">
+                                                <Button className="download-now"
+                                                onClick={handleClickReadBook}>
                                                     {fileBook ? (
-                                                        <a href={`${API_URL.HOST}/${API_URL.FILE_BOOK}/download/${fileBook}`} download>
-                                                            Tải xuống ngay
+                                                        <a>
+                                                            Đọc sách
                                                         </a>
                                                     ) : (
-                                                        <a>Tải xuống ngay</a>
+                                                        <a>Đọc sách</a>
                                                     )}
                                                 </Button>
                                             </motion.div>

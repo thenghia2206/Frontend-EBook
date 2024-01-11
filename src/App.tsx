@@ -30,12 +30,13 @@ function App() {
     }, []);
     const isForgotPassWordPage = location.pathname === '/forgot-password';
     const isRessetPassWordPage = location.pathname === '/forgot-password/newpass';
+    const isReadBookPage = location.pathname === '/read-book'
     return (
         <Spin spinning={loading} delay={500} tip="Đang lấy dữ liệu..." size="large">
             <Layout>
-                { !isForgotPassWordPage && !isRessetPassWordPage && <CHeader />}
+                { !isForgotPassWordPage && !isRessetPassWordPage && !isReadBookPage && <CHeader />}
                     <AnimationRouter />
-                <CFooter />
+                { !isReadBookPage && <CFooter />}
             </Layout>
         </Spin>
     );

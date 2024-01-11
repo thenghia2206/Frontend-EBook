@@ -94,4 +94,14 @@ export default class BookApi {
         );
     }
 
+    static getCodePDF(body: any): Observable<any> {
+        const api = `${BookApi.apiURL.HOST}/${this.apiURL.GET_CODE_PDF}/${body}`;
+        return HttpClient.get(api).pipe(
+            map(
+                (res) => (res as any) || null,
+                catchError((error) => new Observable())
+            )
+        );
+    }
+
 }

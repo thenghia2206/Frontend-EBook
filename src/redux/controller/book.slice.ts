@@ -60,6 +60,7 @@ interface BookState {
     totalFilterBook : number,
     listCategory : ICategory[],
     listBookRecommendByDetailBook : IBookRecommend[],
+    codeBook : string | undefined,
 }
 
 let initState: BookState = {
@@ -97,6 +98,7 @@ let initState: BookState = {
     totalFilterBook : 0,
     listCategory : [],
     listBookRecommendByDetailBook : [],
+    codeBook : undefined,
 }
 
 
@@ -601,14 +603,27 @@ export const bookSlice = createSlice({
 
         },
 
+        getCodeBookRequests(state, action: PayloadAction<any>) {
+            state.loading = true;
+        },
+        getCodeBookSuccess(state, action: PayloadAction<any>) {
+            state.loading = false;
+            state.codeBook = action.payload
+
+        },
+        getCodeBookFail(state, action: PayloadAction<any>) {
+            state.loading = false;
+
+        },
+
     },
 });
 
 
-const getBookBestSeller$: RootEpic = (action$) =>
+const getBookBestSeller$: RootEpic = (action$ : any) =>
     action$.pipe(
         filter(getBookBestSellerRequest.match),
-        mergeMap((re) => {
+        mergeMap((re : any) => {
             return BookApi.getHome(re.payload).pipe(
                 mergeMap((res: any) => {
                     return [
@@ -621,10 +636,10 @@ const getBookBestSeller$: RootEpic = (action$) =>
         })
 );
 
-const getBookMostView$: RootEpic = (action$) =>
+const getBookMostView$: RootEpic = (action$ : any) =>
     action$.pipe(
         filter(getBookMostViewRequest.match),
-        mergeMap((re) => {
+        mergeMap((re : any) => {
             return BookApi.getHome(re.payload).pipe(
                 mergeMap((res: any) => {
                     return [
@@ -638,10 +653,10 @@ const getBookMostView$: RootEpic = (action$) =>
 );
 
 
-const getRecommend$: RootEpic = (action$) =>
+const getRecommend$: RootEpic = (action$ : any) =>
     action$.pipe(
         filter(getRecommendRequest.match),
-        mergeMap((re) => {
+        mergeMap((re : any) => {
             return BookApi.getRecommend(re.payload).pipe(
                 mergeMap((res: any) => {
                     return [
@@ -654,10 +669,10 @@ const getRecommend$: RootEpic = (action$) =>
         })
 );
 
-const getDetailBook$: RootEpic = (action$) =>
+const getDetailBook$: RootEpic = (action$ : any) =>
 action$.pipe(
     filter(getDetailBookRequests.match),
-    mergeMap((re) => {
+    mergeMap((re : any) => {
         return BookApi.getDetailBook(re.payload.id).pipe(
             mergeMap((res: any) => {
                 return [
@@ -670,10 +685,10 @@ action$.pipe(
     })
 );
 
-const getRecommendByDetailBook$: RootEpic = (action$) =>
+const getRecommendByDetailBook$: RootEpic = (action$ : any) =>
     action$.pipe(
         filter(getRecommendByDetailBookRequest.match),
-        mergeMap((re) => {
+        mergeMap((re : any) => {
             return BookApi.getRecommendDetailBook(re.payload.id).pipe(
                 mergeMap((res: any) => {
                     return [
@@ -687,10 +702,10 @@ const getRecommendByDetailBook$: RootEpic = (action$) =>
 );
 
 
-const getRates$: RootEpic = (action$) =>
+const getRates$: RootEpic = (action$ : any) =>
     action$.pipe(
         filter(getRatesRequest.match),
-        mergeMap((re) => {
+        mergeMap((re : any) => {
             return BookApi.getRate(re.payload).pipe(
                 mergeMap((res: any) => {
                     return [
@@ -704,10 +719,10 @@ const getRates$: RootEpic = (action$) =>
 );
 
 
-const getFileBook$: RootEpic = (action$) =>
+const getFileBook$: RootEpic = (action$ : any) =>
 action$.pipe(
     filter(getFileBookRequests.match),
-    mergeMap((re) => {
+    mergeMap((re : any) => {
         return BookApi.getFileBook(re.payload.id).pipe(
             mergeMap((res: any) => {
                 return [
@@ -720,10 +735,10 @@ action$.pipe(
     })
 );
 
-const deleteBookInCart$: RootEpic = (action$) =>
+const deleteBookInCart$: RootEpic = (action$ : any) =>
 action$.pipe(
     filter(deleteBookInCartRequest.match),
-    mergeMap((re) => {
+    mergeMap((re : any) => {
         return CartApi.deleteOneBookInCart(re.payload.id).pipe(
             mergeMap((res: any) => {
                 return [
@@ -739,7 +754,7 @@ action$.pipe(
 );
 
 
-const clearCart$: RootEpic = (action$) =>
+const clearCart$: RootEpic = (action$ : any) =>
 action$.pipe(
     filter(clearCartRequest.match),
     mergeMap((re) => {
@@ -758,7 +773,7 @@ action$.pipe(
 );
 
 
-const getCartQuantity$: RootEpic = (action$) =>
+const getCartQuantity$: RootEpic = (action$ : any) =>
 action$.pipe(
     filter(getCartQuantityRequest.match),
     mergeMap((re) => {
@@ -774,10 +789,10 @@ action$.pipe(
     })
 );
 
-const addBookToCart$: RootEpic = (action$) =>
+const addBookToCart$: RootEpic = (action$ : any) =>
     action$.pipe(
         filter(addBookToCartRequest.match),
-        mergeMap((re) => {
+        mergeMap((re : any) => {
             return CartApi.addBooksToCart(re.payload).pipe(
                 mergeMap((res: any) => {
                     return [
@@ -790,7 +805,7 @@ const addBookToCart$: RootEpic = (action$) =>
         })
 );
 
-const getCart$: RootEpic = (action$) =>
+const getCart$: RootEpic = (action$ : any) =>
 action$.pipe(
     filter(getCartRequest.match),
     mergeMap((re) => {
@@ -807,10 +822,10 @@ action$.pipe(
 );
 
 
-const createPayment$: RootEpic = (action$) =>
+const createPayment$: RootEpic = (action$ : any) =>
 action$.pipe(
     filter(paymentRequest.match),
-    mergeMap((re) => {
+    mergeMap((re : any) => {
         return VNPayApi.createPayment(re.payload).pipe(
             mergeMap((res: any) => {
                 return [
@@ -823,7 +838,7 @@ action$.pipe(
 );
 
 //Profile
-const getProfile$: RootEpic = (action$) =>
+const getProfile$: RootEpic = (action$ : any) =>
 action$.pipe(
     filter(getProfileRequest.match),
     mergeMap((re) => {
@@ -839,10 +854,10 @@ action$.pipe(
     })
 );
 
-const createRate$: RootEpic = (action$) =>
+const createRate$: RootEpic = (action$ : any) =>
 action$.pipe(
     filter(createRateRequest.match),
-    mergeMap((re) => {
+    mergeMap((re : any) => {
         const bodyRequest = {
             size : QUERY_PARAM.size,
             offset : 0
@@ -859,10 +874,10 @@ action$.pipe(
     })
 );
 
-const getPuchasedBooks$: RootEpic = (action$) =>
+const getPuchasedBooks$: RootEpic = (action$ : any) =>
     action$.pipe(
         filter(getPuchasedBooksRequest.match),
-        mergeMap((re) => {
+        mergeMap((re : any) => {
             return PuchasedBooksApi.getListPuchasedBook(re.payload).pipe(
                 mergeMap((res: any) => {
                     return [
@@ -875,10 +890,10 @@ const getPuchasedBooks$: RootEpic = (action$) =>
 );
 
 
-const advancedSearchBook$: RootEpic = (action$) =>
+const advancedSearchBook$: RootEpic = (action$ : any) =>
     action$.pipe(
         filter(advancedSearchingRequest.match),
-        switchMap((re) => {
+        switchMap((re : any) => {
             const bodyrequest = {
                 size: re.payload.size,
                 offset: re.payload.offset,
@@ -905,10 +920,10 @@ const advancedSearchBook$: RootEpic = (action$) =>
     );
 
 
-const getCategories$: RootEpic = (action$) =>
+const getCategories$: RootEpic = (action$ : any) =>
     action$.pipe(
         filter(getCategoriesRequest.match),
-        mergeMap((re) => {
+        mergeMap((re : any) => {
             return CategoryApi.getListCategory(re.payload).pipe(
                 mergeMap((res: any) => {
                     return [
@@ -922,7 +937,7 @@ const getCategories$: RootEpic = (action$) =>
 );
 
 
-const resetCurrentSearchValue$: RootEpic = (action$) =>
+const resetCurrentSearchValue$: RootEpic = (action$ : any) =>
     action$.pipe(
         filter(resetCurrentSearchValueRequest.match),
         mergeMap((re) => {
@@ -941,6 +956,22 @@ const resetCurrentSearchValue$: RootEpic = (action$) =>
             ];
         })
     )
+
+    const getCodeBook$: RootEpic = (action$ : any) =>
+    action$.pipe(
+        filter(getCodeBookRequests.match),
+        mergeMap((re : any) => {
+            return BookApi.getCodePDF(re.payload.id).pipe(
+                mergeMap((res: any) => {
+                    return [
+                        bookSlice.actions.getCodeBookSuccess(res.data),
+    
+                    ];
+                }),
+                catchError((err) => [bookSlice.actions.getCodeBookFail(err)])
+            )
+        })
+    );
 
 
 export const BookEpics = [
@@ -963,6 +994,7 @@ export const BookEpics = [
     getCategories$,
     resetCurrentSearchValue$,
     getRecommendByDetailBook$,
+    getCodeBook$,
 ];
 
 export const {
@@ -985,5 +1017,6 @@ export const {
     getCategoriesRequest,
     resetCurrentSearchValueRequest,
     getRecommendByDetailBookRequest,
+    getCodeBookRequests,
 } = bookSlice.actions;
 export const bookReducer = bookSlice.reducer;

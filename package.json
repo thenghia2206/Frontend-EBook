@@ -9,12 +9,16 @@
     "@mui/material": "^5.11.4",
     "@patternfly/react-charts": "^6.94.15",
     "@react-icons/all-files": "^4.1.0",
+    "@react-pdf-viewer/core": "^3.12.0",
+    "@react-pdf-viewer/default-layout": "^3.12.0",
+    "@react-pdf/renderer": "^3.1.14",
     "@reduxjs/toolkit": "^1.9.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.14",
+    "@types/pdf-viewer-reactjs": "^2.2.5",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "antd": "^4.24.7",
@@ -26,6 +30,7 @@
     "jsencrypt": "^3.2.1",
     "mdb-react-ui-kit": "^5.1.0",
     "mdbootstrap": "^4.20.0",
+    "pdfjs-dist": "^3.4.120",
     "rc-switch": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -33,12 +38,15 @@
     "react-icons": "^4.9.0",
     "react-intersection-observer": "^9.4.2",
     "react-map-gl": "^7.0.21",
+    "react-pdf-js": "^5.1.0",
+    "react-reader": "^2.0.4",
     "react-redux": "^7.2.2",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.6.2",
     "react-scripts": "5.0.1",
     "react-star-ratings": "^2.3.0",
     "react-switch": "^7.0.0",
+    "react-typescript-pdf-reader": "^0.0.13",
     "redux-observable": "^1.2.0",
     "redux-persist": "^6.0.0",
     "rxjs": "^6.6.6",
@@ -72,6 +80,7 @@
     ]
   },
   "devDependencies": {
+    "@types/pdfjs-dist": "^2.10.378",
     "@types/styled-components": "^5.1.26"
   }
 }
