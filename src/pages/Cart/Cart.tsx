@@ -211,7 +211,6 @@ const Cart = () => {
                     <Table
                         className="table-source"
                         columns={columns}
-                        rowSelection={{ ...rowSelection }}
                         dataSource={cart?.books}
                         pagination={false}
                     />
