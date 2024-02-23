@@ -601,7 +601,7 @@ const DetailBook = () => {
                         listRate.map((item : any) => (
                             <div className='rate'>
                                 <div className='avatar'>
-                                    <img src={Avatar} />
+                                    <img src={Avatar} style={{height : '30px', width: "30px"}} />
                                 </div>
                                 <div className='content-rate'>
                                     <div className='name-rate'>{item.nameUser}</div>
